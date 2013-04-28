@@ -26,9 +26,7 @@ public class RaxaVoice extends BaseAgiScript
         String result=(new RaxaRestCaller()).retrieveDataFromRest(CallerID);   //This will retreive data based on the caller ID number and store it in a string.
         
         
-       
-        
-        //text to speech
+         //text to speech
         
         (new TextToSpeech()).play(result);
         
