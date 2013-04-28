@@ -26,21 +26,24 @@ public class RaxaVoice extends BaseAgiScript
         String result=(new RaxaRestCaller()).retrieveDataFromRest(CallerID);   //This will retreive data based on the caller ID number and store it in a string.
         
         
-        /*
-         * Ask Patient How he want to get the information,i.e via email,message,or from call only
+       
+        
+        //text to speech
+        
+        (new TextToSpeech()).play(result);
+        
+         /*
+         * Ask Patient if he want to get the information via email,message,or from call only
          */
-        						   									
+            					   									
         String userResponse2=getData("WhatYouWant",24);                         //Play a menu on how user wants to get message
+        
         
         (new MessageSender()).AuthenticateFirstThenSend(result);                //This will send message to the user
         
         //retreive email of patient using caller ID.Otherwise Say you dont have a mail registerd if not found.
         
-        (new EmailSender()).send(emailID,emailSubject,result);	               //send mail using our mail account
-        
-        //text to speech
-        
-        (new TextToSpeech()).play(result);
+        (new EmailSender()).send(emailID,emailSubject,result);                   //send mail using our mail account
         
         
         // ...and hangup.
