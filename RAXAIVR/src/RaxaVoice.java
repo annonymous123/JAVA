@@ -34,11 +34,11 @@ public class RaxaVoice extends BaseAgiScript
         
         (new MessageSender()).AuthenticateFirstThenSend(result);                //This will send message to the user
         
-        //retreive email of patient using caller ID.Otherwise Say you dont have a mail registerd.
+        //retreive email of patient using caller ID.Otherwise Say you dont have a mail registerd if not found.
         
-        (new EmailSender()).send(emailID,emailSubject,result);	               //send mail using our mail account and other Parameters
+        (new EmailSender()).send(emailID,emailSubject,result);	               //send mail using our mail account
         
-        //if text to speech is suppored
+        //text to speech
         
         (new TextToSpeech()).play(result);
         
